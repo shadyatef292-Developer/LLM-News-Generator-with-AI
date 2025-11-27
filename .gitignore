@@ -1,0 +1,24 @@
+# WordPress & PHP ignores
+wp-config.php
+.env
+.DS_Store
+*.log
+*.sql
+*.bak
+
+# IDE/Tooling ignores
+/.idea/
+/.vscode/
+/vendor/
+/node_modules/
+/composer.lock
+
+# Plugin development specific ignores
+/assets/*.psd
+/assets/*.ai
+/assets/*.xcf
+
+# Secrets (Important!)
+# This prevents committing your environment configuration
+*key*
+*secret*
