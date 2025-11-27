@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LLM News Studio Pro Documentation</title>
+    <style>
+        /* --- GLOBAL STYLES --- */
+        :root {
+            --primary-color: #2271b1;
+            --secondary-color: #1d2327;
+            --light-gray: #f9f9f9;
+            --text-color: #333;
+            --border-color: #eee;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light-gray);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        a:hover {
+            color: var(--secondary-color);
+        }
+        
+        /* --- LAYOUT --- */
+        .doc-container {
+            display: flex;
+            max-width: 1400px;
+            margin: 0 auto;
+            min-height: 100vh;
+        }
+        
+        /* --- SIDEBAR MENU --- */
+        .doc-sidebar {
+            width: 280px;
+            flex-shrink: 0;
+            background-color: var(--secondary-color);
+            color: #fff;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            max-height: 100vh;
+            overflow-y: auto;
+        }
+        .doc-logo {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: #fff;
+            border-bottom: 1px solid #444;
+            padding-bottom: 15px;
+        }
+        .doc-menu {
+            list-style: none;
+            padding: 0;
+        }
+        .doc-menu li {
+            margin-bottom: 10px;
+        }
+        .doc-menu a {
+            display: block;
+            padding: 10px 15px;
+            color: #ccc;
+            border-radius: 4px;
+            transition: background 0.2s, color 0.2s;
+        }
+        .doc-menu a:hover, .doc-menu a.active {
+            background-color: var(--primary-color);
+            color: #fff;
+        }
+
+        /* --- CONTENT AREA --- */
+        .doc-content {
+            flex-grow: 1;
+            padding: 40px;
+        }
+        .doc-section {
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        .doc-section h2 {
+            font-size: 28px;
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 10px;
+            margin-top: 0;
+            margin-bottom: 25px;
+        }
+        .doc-section h3 {
+            font-size: 20px;
+            margin-top: 30px;
+            color: var(--secondary-color);
+        }
+
+        /* --- CODE & NOTES --- */
+        code {
+            background-color: #eef;
+            padding: 2px 5px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 0.9em;
+            color: #c7254e;
+        }
+        pre {
+            background-color: #272822;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+        .note {
+            border-left: 4px solid #f39c12;
+            background-color: #fef5e7;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        .feature-list {
+            list-style: disc;
+            padding-left: 20px;
+        }
+        .feature-list li {
+            margin-bottom: 10px;
+        }
+        
+        /* --- FOOTER --- */
+        .doc-footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9em;
+            color: #666;
+            border-top: 1px solid var(--border-color);
+            background-color: #fff;
+            margin-top: 30px;
+        }
+
+        /* --- TROUBLESHOOTING --- */
+        .faq-item {
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            margin-bottom: 10px;
+            overflow: hidden;
+        }
+        .faq-question {
+            background-color: #f7f7f7;
+            padding: 15px;
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .faq-answer {
+            padding: 15px;
+            border-top: 1px solid var(--border-color);
+            display: none; /* Controlled by JS */
+        }
+        .faq-icon {
+            font-size: 1.2em;
+            transition: transform 0.3s;
+        }
+        .faq-question.active .faq-icon {
+            transform: rotate(90deg);
+        }
+    </style>
+</head>
+<body>
+
+<div class="doc-container">
+    
+    <aside class="doc-sidebar">
+        <div class="doc-logo">LLM News Studio Pro</div>
+        <ul class="doc-menu">
+            <li><a href="#introduction">Introduction</a></li>
+            <li><a href="#architecture">Architecture & Quality</a></li>
+            <li><a href="#installation">Installation</a></li>
+            <li><a href="#configuration">Configuration</a></li>
+            <li><a href="#usage">Usage & Operations</a></li>
+            <li><a href="#troubleshooting">Troubleshooting</a></li>
+        </ul>
+    </aside>
+
+    <main class="doc-content">
+        
+        <section id="introduction" class="doc-section">
+            <h2>1. Introduction</h2>
+            <p>Welcome to the official documentation for **LLM News Studio Pro**, the premier WordPress plugin for automated content generation. This tool is designed for speed, quality, and complete SEO readiness, making it ideal for business owners needing constant, fresh content tailored to specific niches.</p>
+
+            <h3>Core Features</h3>
+            <ul class="feature-list">
+                <li>**Groq-Powered Speed:** Leverages Groq's low-latency API for ultra-fast, real-time article generation.</li>
+                <li>**Robust Image Integration:** Automatically searches the Unsplash API for relevant, high-quality featured images, handling all legal attribution via image captions.</li>
+                <li>**SEO-First Output:** Enforces structured HTML (<code>&lt;h2&gt;</code>, <code>&lt;ul&gt;</code>), populates Post Tags (Keywords), and sets the Post Excerpt (Meta Description).</li>
+                <li>**Separated Logic:** The "Save Settings" and "Generate Post" actions are securely isolated, guaranteeing that configuration changes do not accidentally trigger content generation.</li>
+                <li>**Daily Automation:** Uses WordPress Cron to schedule consistent, daily content production based on your specified topic.</li>
+            </ul>
+        </section>
+
+        <section id="architecture" class="doc-section">
+            <h2>2. Architecture & Quality Control</h2>
+            <p>The plugin was developed with professional standards, focusing on stability and maintainability.</p>
+            
+            <h3>Security (Non-Negotiable)</h3>
+            <ul class="feature-list">
+                <li>**Input Validation:** All user inputs (API keys, topic prompts) are strictly sanitized using WordPress functions like <code>sanitize_text_field()</code>.</li>
+                <li>**Output Escaping:** Generated content, which contains raw HTML, is securely filtered using <code>wp_kses_post()</code> before being inserted into the database, preventing XSS attacks.</li>
+                <li>**Action Security:** All administrative actions (Save, Generate) require logged-in users with <code>manage_options</code> capability and utilize WordPress Nonce security tokens.</li>
+            </ul>
+
+            <h3>Performance & SEO</h3>
+            <ul class="feature-list">
+                <li>**Frontend Performance:** The plugin's code is entirely confined to the WordPress admin panel and scheduled Cron events. It adds zero overhead to your public-facing website pages.</li>
+                <li>**Structured Output:** The AI prompt is engineered to enforce an authoritative tone and SEO-friendly structure: a clear title, <code>&lt;h2&gt;</code> subheadings, and paragraphs.</li>
+                <li>**Meta-Data:** Automatic generation of Post Tags and Post Excerpts ensures maximum search engine visibility for every generated article.</li>
+            </ul>
+        </section>
+
+        <section id="installation" class="doc-section">
+            <h2>3. Installation & API Setup</h2>
+
+            <h3>Step 1: Installation</h3>
+            <p>Install the <code>llm-news-generator.php</code> file as a standard WordPress plugin:</p>
+            <ol>
+                <li>Upload the file to your <code>wp-content/plugins/</code> directory.</li>
+                <li>Navigate to **Plugins** in your WordPress dashboard.</li>
+                <li>Click **Activate** for "LLM News Studio Pro".</li>
+                <li>A new menu item, **LLM News Studio**, will appear in the sidebar.</li>
+            </ol>
+
+            <h3>Step 2: Obtaining API Keys (Critical)</h3>
+            <p>The plugin requires two separate, free API keys to function:</p>
+            
+            <h4>🔑 Groq API Key (For AI Content)</h4>
+            <ul class="feature-list">
+                <li>Visit: <a href="https://console.groq.com/keys" target="_blank">console.groq.com/keys</a></li>
+                <li>Generate a new API key (starts with <code>gsk_...</code>).</li>
+            </ul>
+
+            <h4>🔑 Unsplash Access Key (For Images)</h4>
+            <ul class="feature-list">
+                <li>Visit: <a href="https://unsplash.com/developers" target="_blank">unsplash.com/developers</a></li>
+                <li>Register a new application to obtain your **Access Key** (Client ID).</li>
+            </ul>
+        </section>
+
+        <section id="configuration" class="doc-section">
+            <h2>4. Configuration (LLM News Studio)</h2>
+
+            <p>Navigate to the **LLM News Studio** menu item to configure the plugin.</p>
+
+            <h3>Configuration Fields</h3>
+            <ul class="feature-list">
+                <li>**Groq API Key:** Paste your <code>gsk_...</code> key here.</li>
+                <li>**Unsplash Access Key:** Paste your Client ID here.</li>
+                <li>**Topic Prompt:** The core input for the AI. Be specific! (e.g., "Marketing strategies for local dentists in a post-pandemic world").</li>
+                <li>**Daily Post Count:** Set the number of articles to be automatically generated every 24 hours.</li>
+            </ul>
+            <p>Always click the **Save Settings Only** button after making changes.</p>
+        </section>
+
+        <section id="usage" class="doc-section">
+            <h2>5. Usage & Operations</h2>
+
+            <h3>Generating an Instant Preview (Testing)</h3>
+            <p>To test your configuration without waiting for the daily Cron, use the manual trigger:</p>
+            <ol>
+                <li>Click the **⚡ Run Generator Now** button in the sidebar.</li>
+                <li>The plugin will generate one article and attempt to find a featured image immediately.</li>
+                <li>A success message will confirm the post ID. Navigate to **Posts > Drafts** to review the result.</li>
+            </ol>
+            
+            <div class="note">
+                **Image Attribution Note:** Due to Unsplash API requirements, the mandatory photographer credit is automatically added to the **Caption** field of the Featured Image in the WordPress Media Library. This is necessary for legal compliance.
+            </div>
+        </section>
+
+        <section id="troubleshooting" class="doc-section">
+            <h2>6. Troubleshooting & FAQ</h2>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleAnswer(this)">
+                    <span>Q: Clicking "Save Settings" generates a post! Why?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p><strong>A: FIXED in v5.0.</strong> This was caused by the Cron scheduler resetting and running immediately upon saving. We have corrected this. The scheduler now starts **1 hour** after saving, ensuring the **Save Settings Only** button never generates content.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleAnswer(this)">
+                    <span>Q: No images are being attached to the posts.</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p><strong>A:</strong> This is almost always a server or API key issue. Check the following:</p>
+                    <ul>
+                        <li><strong>API Key:</strong> Ensure your Unsplash **Access Key (Client ID)** is correct.</li>
+                        <li><strong>Server Setup:</strong> The robust image downloading relies on your server's ability to fetch external files. If the error message mentions "cURL" or "HTTP Error," contact your host to ensure external file downloading is permitted.</li>
+                        <li><strong>Image Status:</strong> Run the generator manually. The resulting status message will include a detailed "Image Status" (e.g., "Unsplash Connection Failed" or "Success").</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleAnswer(this)">
+                    <span>Q: The generated content is short or low quality.</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p><strong>A:</strong> Improve your **Topic Prompt**. The AI is highly responsive to detail. Instead of "Write about finance," try: "Write a detailed, 600-word analysis of Q4 financial planning for retail shops, including three actionable tips."</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+</div>
+
+<footer class="doc-footer">
+    LLM News Studio Pro v5.0 | Developed by <a href="https://www.linkedin.com/in/shady-atef-profile/"target="_blank">Shady Atef </a>| Secure & SEO-Optimized Architecture
+</footer>
+
+<script>
+    function toggleAnswer(element) {
+        element.classList.toggle('active');
+        let answer = element.nextElementSibling;
+        if (answer.style.display === "block") {
+            answer.style.display = "none";
+        } else {
+            answer.style.display = "block";
+        }
+    }
+
+    // JS to activate the current menu item based on hash
+    document.addEventListener('DOMContentLoaded', () => {
+        const menuLinks = document.querySelectorAll('.doc-menu a');
+        
+        function updateActiveLink() {
+            const hash = window.location.hash || '#introduction';
+            menuLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === hash) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        // Initial load
+        updateActiveLink();
+
+        // Update on hash change
+        window.addEventListener('hashchange', updateActiveLink);
+    });
+</script>
+
+</body>
+</html>

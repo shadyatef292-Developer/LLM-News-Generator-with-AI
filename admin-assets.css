@@ -1,0 +1,474 @@
+/* Keep the exact same CSS as before - it's already perfect! */
+:root {
+    --primary: #4361ee;
+    --primary-dark: #3a56d4;
+    --secondary: #7209b7;
+    --accent: #f72585;
+    --success: #4cc9f0;
+    --dark: #1a1a2e;
+    --darker: #16213e;
+    --light: #f8f9fa;
+    --gray: #6c757d;
+    --card-bg: #ffffff;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.15);
+    --gradient-primary: linear-gradient(135deg, #4361ee 0%, #7209b7 100%);
+    --gradient-secondary: linear-gradient(135deg, #f72585 0%, #b5179e 100%);
+    --gradient-success: linear-gradient(135deg, #4cc9f0 0%, #4895ef 100%);
+}
+
+/* ... (keep all the existing CSS exactly as you had it) ... */
+
+/* Base Styles */
+.llm-wrap {
+    max-width: 1200px;
+    margin: 20px auto;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: var(--light);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+/* Header with Gradient */
+.llm-header {
+    background: var(--gradient-primary);
+    color: white;
+    padding: 40px 50px;
+    position: relative;
+    overflow: hidden;
+}
+
+.llm-header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 100%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+    animation: float 20s linear infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateX(0) translateY(0);
+    }
+
+    100% {
+        transform: translateX(-20px) translateY(-20px);
+    }
+}
+
+.llm-header h1 {
+    margin-bottom: 30px !important;
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin: 0;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 2;
+}
+
+.llm-header span {
+    background: var(--gradient-secondary);
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(247, 37, 133, 0.4);
+    position: relative;
+    z-index: 2;
+}
+
+/* Body Layout */
+.llm-body {
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    gap: 40px;
+    padding: 50px;
+    background: var(--light);
+}
+
+/* Form Section */
+.llm-form-section {
+    background: var(--card-bg);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+}
+
+.llm-field {
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.llm-field label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: var(--dark);
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.llm-field label::before {
+    content: '✨';
+    font-size: 1.2em;
+}
+
+.llm-field input[type="text"],
+.llm-field input[type="password"],
+.llm-field input[type="number"],
+.llm-field textarea,
+.llm-field select,
+.llm-field input[type="time"] {
+    width: 100%;
+    padding: 16px 20px;
+    border: 2px solid #e9ecef;
+    border-radius: 12px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: var(--light);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.llm-field input:focus,
+.llm-field textarea:focus,
+.llm-field select:focus,
+.llm-field input[type="time"]:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 5px 15px rgba(67, 97, 238, 0.2);
+    transform: translateY(-2px);
+}
+
+.llm-field textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.llm-helper {
+    font-size: 0.875rem;
+    color: var(--gray);
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.llm-helper a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.llm-helper a:hover {
+    color: var(--secondary);
+}
+
+/* Buttons */
+.llm-btn-save {
+    background: var(--gradient-primary);
+    color: white;
+    border: none;
+    padding: 16px 40px;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(67, 97, 238, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.llm-btn-save::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.llm-btn-save:hover::before {
+    left: 100%;
+}
+
+.llm-btn-save:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(67, 97, 238, 0.4);
+}
+
+.llm-btn-save:active {
+    transform: translateY(-1px);
+}
+
+/* Sidebar */
+.llm-sidebar-box {
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 20px;
+    margin-bottom: 30px;
+    box-shadow: var(--shadow);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.llm-sidebar-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background: var(--gradient-secondary);
+}
+
+.llm-sidebar-box:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.llm-sidebar-box h3 {
+    margin: 0 0 20px 0;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--dark);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.llm-sidebar-box h3::before {
+    content: '🚀';
+    font-size: 1.2em;
+}
+
+.llm-btn-gen {
+    background: var(--gradient-secondary);
+    color: white;
+    border: none;
+    padding: 18px;
+    width: 100%;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(247, 37, 133, 0.3);
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+}
+
+.llm-btn-gen::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.llm-btn-gen:hover::before {
+    left: 100%;
+}
+
+.llm-btn-gen:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(247, 37, 133, 0.4);
+    color: white;
+}
+
+/* System Status */
+.llm-status-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.llm-status-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #f1f3f4;
+}
+
+.llm-status-list li:last-child {
+    border-bottom: none;
+}
+
+.llm-status-list strong {
+    color: var(--dark);
+    font-weight: 600;
+}
+
+.llm-status-value {
+    background: var(--gradient-success);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+/* Notices */
+.llm-notice {
+    padding: 20px 25px;
+    margin-bottom: 25px;
+    border-radius: 15px;
+    border-left: 5px solid;
+    background: var(--card-bg);
+    box-shadow: var(--shadow);
+    animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.llm-notice.success {
+    border-left-color: #4cc9f0;
+    background: linear-gradient(135deg, #f0fdff 0%, #e6f7ff 100%);
+}
+
+.llm-notice.error {
+    border-left-color: #f72585;
+    background: linear-gradient(135deg, #fff0f5 0%, #ffeef5 100%);
+}
+
+.llm-notice strong {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+}
+
+/* Feature Badges */
+.llm-features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.llm-feature-badge {
+    background: var(--gradient-success);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 25px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(76, 201, 240, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .llm-body {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 30px;
+    }
+
+    .llm-header {
+        padding: 30px;
+    }
+
+    .llm-header h1 {
+        font-size: 2rem;
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .llm-wrap {
+        margin: 10px;
+        border-radius: 15px;
+    }
+
+    .llm-body {
+        padding: 20px;
+    }
+
+    .llm-form-section {
+        padding: 25px;
+    }
+
+    .llm-header {
+        padding: 25px;
+        text-align: center;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .llm-features {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Loading Animation */
+.llm-loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, .3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Pulse Animation for Important Elements */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.llm-pulse {
+}
+
+/* Glass Morphism Effect */
+.llm-glass {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
